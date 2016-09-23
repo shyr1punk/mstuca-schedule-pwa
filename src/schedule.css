@@ -1,0 +1,9 @@
+.schedule-table th:first-of-type,
+.schedule-table td:first-of-type {
+  width: 15px;
+}
+
+.schedule-table th:last-of-type,
+.schedule-table td:last-of-type {
+  width: 50px;
+}
