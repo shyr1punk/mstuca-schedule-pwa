@@ -63,7 +63,7 @@ class Menu extends Component {
               menuData.faculties.map(faculty =>
                 <RaisedButton
                   label={faculty.short}
-                  onClick={() => {this.onFacultyClick(faculty.id)}} secondary
+                  onClick={() => {this.onFacultyClick(faculty._id)}} secondary
                   style={{marginBottom: '12px'}}/>
               )
             }
@@ -74,11 +74,11 @@ class Menu extends Component {
             {
               menuData.specialities
                 .filter(speciality =>
-                  this.state.facultyId ? speciality.facultyId === this.state.facultyId : true
+                  this.state.facultyId ? speciality.faculty === this.state.facultyId : true
                 ).map(speciality =>
                   <RaisedButton
                   label={speciality.short}
-                  onClick={() => {this.onSpecialityClick(speciality.id, speciality.facultyId)}} primary
+                  onClick={() => {this.onSpecialityClick(speciality._id, speciality.faculty)}} primary
                   style={{marginBottom: '12px'}}/>
                 )
             }
@@ -90,15 +90,15 @@ class Menu extends Component {
               menuData.groups
                 .filter(group => {
                   if (this.state.specialityId) {
-                    return group.specialityId === this.state.specialityId;
+                    return group.speciality === this.state.specialityId;
                   } else if (this.state.facultyId) {
-                    return group.facultyId === this.state.facultyId;
+                    return group.faculty === this.state.facultyId;
                   }
                   return true;
                 }).map(group =>
                   <RaisedButton
                   label={group.short}
-                  onClick={() => {this.onGroupClick(group.id, group.specialityId)}}
+                  onClick={() => {this.onGroupClick(group._id, group.speciality)}}
                   style={{marginBottom: '12px'}}/>
                 )
             }
