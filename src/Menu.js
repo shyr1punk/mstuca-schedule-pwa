@@ -1,96 +1,28 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
 import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 
-const menuData = {
-  facutlies: [
-    {
-      id: 1,
-      short: 'МФ'
-    }, {
-      id: 2,
-      short: 'ФАСК'
-    }, {
-      id: 3,
-      short: 'ФПМВТ'
-    }, {
-      id: 4,
-      short: 'ФУВТ'
-    }
-  ],
-  specialities: [
-    {
-      id: 1,
-      short: 'М',
-      facultyId: 1
-    }, {
-      id: 2,
-      short: 'БТП',
-      facultyId: 1
-    }, {
-      id: 3,
-      short: 'УВД',
-      facultyId: 2
-    }, {
-      id: 5,
-      short: 'ПМ',
-      facultyId: 3
-    }, {
-      id: 6,
-      short: 'ЭВМ',
-      facultyId: 3
-    }, {
-      id: 7,
-      short: 'БИ',
-      facultyId: 3
-    }, {
-      id: 8,
-      short: 'ОП',
-      facultyId: 4
-    }
-  ],
-  groups: [
-    {
-      id: 1,
-      short: 'М 1-1',
-      specialityId: 1,
-      facultyId: 1
-    }, {
-      id: 2,
-      short: 'М 1-2',
-      specialityId: 1,
-      facultyId: 1
-    }, {
-      id: 3,
-      short: 'ЭВМ 1-1',
-      specialityId: 6,
-      facultyId: 3
-    }, {
-      id: 4,
-      short: 'ЭВМ 1-2',
-      specialityId: 6,
-      facultyId: 3
-    }, {
-      id: 5,
-      short: 'ПМ 1-1',
-      specialityId: 5,
-      facultyId: 3
-    }
-  ]
-}
+import { fetchMenu } from './actions';
 
 class Menu extends Component {
 
   constructor(props) {
-  super(props);
-  this.state = {
-    facultyId: null,
-    specialityId: null,
-    groupId: null
-  };
-}
+    super(props);
+    this.state = {
+      facultyId: null,
+      specialityId: null,
+      groupId: null
+    };
+  }
+
+  componentWillMount() {
+    if(!this.props.menuData.faculty) {
+      fetchMenu(this.props.dispatch);
+    }
+  }
 
   onFacultyClick(facultyId) {
     if (this.state.facultyId === facultyId) {
@@ -119,6 +51,7 @@ class Menu extends Component {
   }
 
   render() {
+    const menuData = this.props.menuData;
     return (
       <div>
         <Card>
@@ -127,7 +60,7 @@ class Menu extends Component {
         <Card>
           <CardActions>
             {
-              menuData.facutlies.map(faculty =>
+              menuData.faculties.map(faculty =>
                 <RaisedButton
                   label={faculty.short}
                   onClick={() => {this.onFacultyClick(faculty.id)}} secondary
@@ -177,7 +110,10 @@ class Menu extends Component {
 }
 
 Menu.contextTypes = {
+  menuData: PropTypes.object,
   history: PropTypes.object
 };
 
-export default Menu;
+export default connect(state => ({
+  menuData: state.menu
+}))(Menu);
