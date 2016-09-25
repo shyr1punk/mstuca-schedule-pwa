@@ -4,10 +4,11 @@ import { TableRow, TableRowColumn } from 'material-ui/Table';
 
 export default class Lesson extends Component {
   render() {
+    console.log(this.props);
     return (
       <TableRow>
         <TableRowColumn>{this.props.number}</TableRowColumn>
-        <TableRowColumn style={{whiteSpace: 'initial'}}>{this.props.lesson}</TableRowColumn>
+        <TableRowColumn style={{whiteSpace: 'initial'}}>{this.props.subject}</TableRowColumn>
         <TableRowColumn>{this.props.auditory}</TableRowColumn>
       </TableRow>
     );
@@ -16,6 +17,6 @@ export default class Lesson extends Component {
 
 Lesson.propTypes = {
   number: PropTypes.number,
-  lesson: PropTypes.string,
+  subject: PropTypes.string,
   auditory: PropTypes.string
 };

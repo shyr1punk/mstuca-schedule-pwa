@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 
-import { TableBody } from 'material-ui/Table';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
-import { Lesson } from './Lesson';
+import Lesson from './Lesson';
 
-export default class Lesson extends Component {
+export default class Day extends Component {
   render() {
-    const date = this.props.date;
-    const dayOfWeek = this.props.date;
+    const date = this.props.date.format('DD.MM.YYYY');
+    const dayOfWeek = this.props.date.format('dddd');
     return (
       <Card>
         <CardHeader>
@@ -30,8 +31,6 @@ export default class Lesson extends Component {
   }
 }
 
-Lesson.propTypes = {
-  number: PropTypes.number,
-  lesson: PropTypes.string,
-  auditory: PropTypes.string
+Day.propTypes = {
+  lessons: PropTypes.array
 };

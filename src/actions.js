@@ -23,7 +23,6 @@ export const fetchSchedule = (dispatch, groupId) =>
   fetch(`/schedule/${groupId}`)
     .then(response => response.json())
     .then(response => {
-      console.log(response);
       dispatch({
         type: STORE_SCHEDULE,
         data: response,
