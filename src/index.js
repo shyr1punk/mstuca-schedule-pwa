@@ -15,7 +15,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Menu}/>
-        <Route path="schedule/:date" component={Schedule}/>
+        <Route path="schedule/:groupId" component={Schedule}/>
         <Route path="*" component={NoMatch}/>
       </Route>
     </Router>

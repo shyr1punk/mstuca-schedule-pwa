@@ -115,5 +115,5 @@ Menu.contextTypes = {
 };
 
 export default connect(state => ({
-  menuData: state.menu
+  menuData: state.menuReducer.menu
 }))(Menu);
