@@ -1,0 +1,14 @@
+/* Лекция */
+.lesson--lection {
+  background-color: #8BC34A;
+}
+
+/* Пр.Зан. */
+.lesson--prac {
+  background-color: #FFF176;
+}
+
+/* Лаб.раб. */
+.lesson--lab {
+  background-color: #E57373;
+}
