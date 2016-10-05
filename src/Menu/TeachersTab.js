@@ -13,6 +13,8 @@ class TeachersTab extends Component {
     this.state = {
       teacherFilter: ''
     };
+
+    this.hangleTeacherInputChange = this.hangleTeacherInputChange.bind(this);
   }
 
   hangleTeacherInputChange(event, value) {
@@ -23,7 +25,7 @@ class TeachersTab extends Component {
   }
 
   render () {
-    const filterRegexp = new RegExp(this.state.teacherFilter);
+    const filterRegexp = new RegExp(this.state.teacherFilter, 'i');
     const teachers = this.state.teacherFilter ?
       this.props.menuData.teachers.filter(teacher => filterRegexp.test(teacher)) :
       this.props.menuData.teachers;
