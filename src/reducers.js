@@ -8,7 +8,8 @@ import { FETCH_MENU, STORE_MENU, fetchMenu } from './actions';
 export default (state = { menu: {
   faculties: [],
   specialities: [],
-  groups: []
+  groups: [],
+  teachers: []
 }}, action) => {
   switch(action.type) {
   case STORE_MENU:
