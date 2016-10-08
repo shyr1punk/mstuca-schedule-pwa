@@ -39,7 +39,7 @@ class GroupsTab extends Component {
   }
 
   onGroupClick(groupId) {
-    this.context.history.push(`/schedule/${groupId}`);
+    this.context.history.push(`/groups/${groupId}/schedule`);
   }
 
   render() {

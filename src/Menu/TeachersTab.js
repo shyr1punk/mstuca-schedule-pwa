@@ -15,13 +15,18 @@ class TeachersTab extends Component {
     };
 
     this.hangleTeacherInputChange = this.hangleTeacherInputChange.bind(this);
+    this.handleTeacherClick = this.handleTeacherClick.bind(this);
   }
 
   hangleTeacherInputChange(event, value) {
-    event.stopPropagation()
+    event.stopPropagation();
     this.setState({
       teacherFilter: value
     })
+  }
+
+  handleTeacherClick(teacherName) {
+    this.context.history.push(`/teachers/${teacherName}/schedule`);
   }
 
   render () {
@@ -39,9 +44,14 @@ class TeachersTab extends Component {
             onChange={this.hangleTeacherInputChange}
           />
           <Divider />
-          {teachers.map((teacher, index) => {
-              return <RaisedButton key={index} label={teacher} fullWidth></RaisedButton>;
-          })}
+          {teachers.map((teacherName, index) =>
+              <RaisedButton
+                key={index}
+                label={teacherName}
+                onClick={() => this.handleTeacherClick(teacherName)}
+                fullWidth>
+              </RaisedButton>
+          )}
         </CardText>
       </Card>
     );

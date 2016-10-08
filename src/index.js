@@ -9,7 +9,8 @@ injectTapEventPlugin();
 import './index.css';
 import App from './App';
 import Menu from './Menu/Menu';
-import Schedule from './Schedule';
+import GroupSchedule from './Schedule/GroupSchedule';
+import TeacherSchedule from './Schedule/TeacherSchedule';
 import NoMatch from './NoMatch';
 
 ReactDOM.render(
@@ -17,7 +18,8 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Menu}/>
-        <Route path="schedule/:groupId" component={Schedule}/>
+        <Route path="groups/:groupId/schedule" component={GroupSchedule}/>
+        <Route path="teachers/:teacherName/schedule" component={TeacherSchedule}/>
         <Route path="*" component={NoMatch}/>
       </Route>
     </Router>

@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import './schedule.css';
 
-import { fetchSchedule } from '../actions';
 import Day from './Day';
 
 class Schedule extends Component {
 
-  componentWillMount() {
-    fetchSchedule(this.props.dispatch, this.props.params.groupId);
-  }
-
   render() {
-    const lessons = this.props.schedules[this.props.params.groupId];
+    const { lessons } = this.props;
     if(!lessons) {
       return <h1>Расписание загружается</h1>;
     }
@@ -48,11 +43,7 @@ class Schedule extends Component {
 }
 
 Schedule.propTypes = {
-  params: PropTypes.object
+  lessons: PropTypes.array
 }
 
-export default connect(state => {
-  return {
-    schedules: state.scheduleReduser.schedules
-  };
-})(Schedule);
+export default connect()(Schedule);
