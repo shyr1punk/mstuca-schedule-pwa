@@ -11,7 +11,7 @@ export const STORE_TEACHER_SCHEDULE = 'STORE_TEACHER_SCHEDULE';
  * @returns {Object} state
  */
 export const fetchMenu = dispatch =>
-  fetch('/menu')
+  fetch('/api/menu')
     .then(response => response.json())
     .then(response => {
       dispatch({
@@ -21,7 +21,7 @@ export const fetchMenu = dispatch =>
     });
 
 export const fetchGroupSchedule = (dispatch, groupId) =>
-  fetch(`/schedule/groups/${groupId}`)
+  fetch(`/api/schedule/groups/${groupId}`)
     .then(response => response.json())
     .then(response => {
       dispatch({
@@ -32,7 +32,7 @@ export const fetchGroupSchedule = (dispatch, groupId) =>
     });
 
 export const fetchTeacherSchedule = (dispatch, teacherName) =>
-  fetch(`/schedule/teachers/${teacherName}`)
+  fetch(`/api/schedule/teachers/${teacherName}`)
     .then(response => response.json())
     .then(response => {
       dispatch({
