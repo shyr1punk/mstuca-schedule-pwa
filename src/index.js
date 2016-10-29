@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
+import moment from 'moment';
+moment.locale('ru');
 
 import './index.css';
 import App from './App';

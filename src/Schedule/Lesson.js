@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
-import { TableRow, TableRowColumn } from 'material-ui/Table';
+import { ListItem } from 'material-ui/List';
+
 import './lesson.css';
 
 export default class Lesson extends Component {
   render() {
+    const { number, subject, auditory, teacher, sub_group } = this.props;
     let cl = '';
     switch (this.props.lesson_type) {
       case 'Лекция':
@@ -20,11 +22,13 @@ export default class Lesson extends Component {
         cl = '';
     }
     return (
-      <TableRow className={cl}>
-        <TableRowColumn>{this.props.number}</TableRowColumn>
-        <TableRowColumn style={{whiteSpace: 'initial'}}>{this.props.subject}</TableRowColumn>
-        <TableRowColumn>{this.props.auditory}</TableRowColumn>
-      </TableRow>
+      <ListItem className={cl}>
+        <div>{number}</div>
+        <div style={{whiteSpace: 'initial'}}>{subject}</div>
+        <div>{auditory}</div>
+        <div>{teacher}</div>
+        { sub_group ? <div>Подгруппа {sub_group}</div> : null }
+      </ListItem>
     );
   }
 }
@@ -32,5 +36,7 @@ export default class Lesson extends Component {
 Lesson.propTypes = {
   number: PropTypes.number,
   subject: PropTypes.string,
-  auditory: PropTypes.string
+  auditory: PropTypes.string,
+  sub_group: PropTypes.string,
+  teacher: PropTypes.string
 };
