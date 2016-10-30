@@ -1,14 +1,52 @@
+.lesson {
+  display: table;
+  width: 100%;
+  margin-left: 5px;
+  padding: 0 5px;
+  margin-bottom: 5px;
+}
+
+.lesson:last-child {
+  margin-bottom: 0;
+}
+
 /* Лекция */
 .lesson--lection {
-  background-color: #8BC34A;
+  border-left: 5px solid #8BC34A;
 }
 
 /* Пр.Зан. */
 .lesson--prac {
-  background-color: #FFF176;
+  border-left: 5px solid #FFF176;
 }
 
 /* Лаб.раб. */
 .lesson--lab {
-  background-color: #E57373;
+  border-left: 5px solid #E57373;
+}
+
+.lesson__main {
+  display: table-cell;
+}
+
+.lesson__auditory {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+  color: grey;
+  white-space: nowrap;
+}
+
+.lesson__teacher {
+  display: inline-block;
+  font-size: 14px;
+  color: grey;
+  white-space: nowrap;
+}
+
+.lesson__sub-group {
+  display: inline-block;
+  font-size: 14px;
+  color: grey;
+  white-space: nowrap;
 }

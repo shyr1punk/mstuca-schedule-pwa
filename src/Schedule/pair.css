@@ -1,0 +1,11 @@
+.pair__number {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 24px;
+  color: grey;
+}
+
+.pair__lessons {
+  display: table-cell;
+  width: 100%;
+}

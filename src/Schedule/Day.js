@@ -5,13 +5,25 @@ import { List } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
-import Lesson from './Lesson';
+import Pair from './Pair';
 
+/**
+ * Отображение одного дня занятий
+ */
 export default class Day extends Component {
   render() {
     const { lessons } = this.props;
     const date = this.props.date.format('DD.MM.YYYY');
     const dayOfWeek = this.props.date.format('dddd');
+    const pairs = lessons && lessons.length ? lessons.reduce((result, lesson) => {
+      if (result[lesson.number]) {
+        result[lesson.number].push(lesson);
+      } else {
+        result[lesson.number] = [lesson];
+      }
+      return result;
+    }, {}) : null;
+
     return (
       <Card style={{margin: '10px'}}>
         <CardHeader
@@ -20,13 +32,15 @@ export default class Day extends Component {
           subtitle={date}
         />
         {
-          lessons && lessons.length ?
-            [
-              <Divider />,
-              <List>
-                { lessons.map(lesson => <Lesson {...lesson}/>) }
-              </List>
-            ] : null
+          pairs &&
+          [
+            <Divider />,
+            <List>
+              { Object.keys(pairs).map(number =>
+                <Pair lessons={pairs[number]} number={number}/>
+              ) }
+            </List>
+          ]
         }
       </Card>
     );

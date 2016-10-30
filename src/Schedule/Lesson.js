@@ -1,34 +1,38 @@
 import React, { Component, PropTypes } from 'react';
 
-import { ListItem } from 'material-ui/List';
-
 import './lesson.css';
 
+/**
+ * Отображение одного учебное занятия
+ */
 export default class Lesson extends Component {
   render() {
-    const { number, subject, auditory, teacher, sub_group } = this.props;
+    const { subject, auditory, teacher, sub_group } = this.props;
     let cl = '';
     switch (this.props.lesson_type) {
       case 'Лекция':
-        cl = 'lesson--lection';
+        cl = 'lesson lesson--lection';
         break;
       case 'Пр.Зан.':
-        cl = 'lesson--prac';
+        cl = 'lesson lesson--prac';
         break;
       case 'Лаб.раб.':
-        cl = 'lesson--lab';
+        cl = 'lesson lesson--lab';
         break;
       default:
         cl = '';
     }
     return (
-      <ListItem className={cl}>
-        <div>{number}</div>
-        <div style={{whiteSpace: 'initial'}}>{subject}</div>
-        <div>{auditory}</div>
-        <div>{teacher}</div>
-        { sub_group ? <div>Подгруппа {sub_group}</div> : null }
-      </ListItem>
+      <div className={cl}>
+        <div className='lesson__main'>
+          <div style={{whiteSpace: 'initial'}}>{subject}</div>
+          <div>
+            <span className='lesson__teacher'>{teacher}</span>
+            { sub_group ? <span className='lesson__sub-group'> подгруппа {sub_group}</span> : null }
+          </div>
+        </div>
+        <div className='lesson__auditory'>{auditory}</div>
+      </div>
     );
   }
 }
