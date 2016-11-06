@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "deploy": "npm run build && ./deploy.sh",
     "build": "react-scripts build && cp manifest.json build/ && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)'",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
