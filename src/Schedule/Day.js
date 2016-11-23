@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader } from 'material-ui/Card';
 import { List } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
 import Pair from './Pair';
@@ -12,8 +11,7 @@ import Pair from './Pair';
  */
 export default class Day extends Component {
   render() {
-    const { lessons } = this.props;
-    const date = this.props.date.format('DD.MM.YYYY');
+    const { lessons, formattedDate } = this.props;
     const dayOfWeek = this.props.date.format('dddd');
     const pairs = lessons && lessons.length ? lessons.reduce((result, lesson) => {
       if (result[lesson.number]) {
@@ -29,15 +27,15 @@ export default class Day extends Component {
         <CardHeader
           style={{textTransform: 'capitalize'}}
           title={dayOfWeek}
-          subtitle={date}
+          subtitle={formattedDate}
         />
         {
           pairs &&
           [
-            <Divider />,
-            <List>
+            <Divider key='divider' />,
+            <List key='list'>
               { Object.keys(pairs).map(number =>
-                <Pair lessons={pairs[number]} number={number}/>
+                <Pair key={number} lessons={pairs[number]} number={Number(number)}/>
               ) }
             </List>
           ]
@@ -48,5 +46,7 @@ export default class Day extends Component {
 }
 
 Day.propTypes = {
+  date: PropTypes.object,
+  formattedDate: PropTypes.string,
   lessons: PropTypes.array
 };

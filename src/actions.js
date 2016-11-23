@@ -1,5 +1,3 @@
-import { createAction } from 'redux';
-
 export const FETCH_MENU = 'FETCH_MENU';
 export const STORE_MENU = 'STORE_MENU';
 export const STORE_GROUP_SCHEDULE = 'STORE_GROUP_SCHEDULE';

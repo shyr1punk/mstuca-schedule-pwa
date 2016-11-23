@@ -20,7 +20,7 @@ export default class Pair extends Component {
       <ListItem disabled>
         <div className='pair__number'>{number}</div>
         <div className='pair__lessons'>
-          {this.props.lessons.map(lesson => <Lesson {...lesson} />)}
+          {this.props.lessons.map((lesson, index) => <Lesson key={index} {...lesson} />)}
         </div>
       </ListItem>
     );

@@ -1,4 +1,4 @@
-import { STORE_GROUP_SCHEDULE, STORE_TEACHER_SCHEDULE, fetchSchedule } from './actions';
+import { STORE_GROUP_SCHEDULE, STORE_TEACHER_SCHEDULE } from './actions';
 
 /**
  * Загрузка данных меню

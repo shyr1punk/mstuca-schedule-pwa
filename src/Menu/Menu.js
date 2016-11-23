@@ -30,7 +30,6 @@ class Menu extends Component {
   }
 
   render() {
-    const menuData = this.props.menuData;
     return (
       <Tabs
         value={this.state.activeTab}

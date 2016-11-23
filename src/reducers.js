@@ -1,4 +1,4 @@
-import { FETCH_MENU, STORE_MENU, fetchMenu } from './actions';
+import { STORE_MENU } from './actions';
 
 /**
  * Загрузка данных меню

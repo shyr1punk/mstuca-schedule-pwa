@@ -41,6 +41,6 @@ Lesson.propTypes = {
   number: PropTypes.number,
   subject: PropTypes.string,
   auditory: PropTypes.string,
-  sub_group: PropTypes.string,
+  sub_group: PropTypes.number,
   teacher: PropTypes.string
 };

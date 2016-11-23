@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardText } from 'material-ui/Card';
-import { Tab } from 'material-ui/Tabs';
 import Divider from 'material-ui/Divider';
 
 class GroupsTab extends Component {
