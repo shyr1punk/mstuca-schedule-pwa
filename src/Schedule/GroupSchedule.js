@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Schedule from './Schedule';
-import { fetchGroupSchedule } from '../actions';
+import { fetchGroupSchedule } from './scheduleActions';
 
 class GroupSchedule extends Component {
 

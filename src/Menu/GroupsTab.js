@@ -5,6 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardText } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 
+import { SET_ACTIVE_GROUP } from './menuActions';
+
 class GroupsTab extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +40,7 @@ class GroupsTab extends Component {
   }
 
   onGroupClick(groupId) {
+    this.props.setActiveGroup(groupId);
     this.context.history.push(`/groups/${groupId}/schedule`);
   }
 
@@ -103,4 +106,11 @@ GroupsTab.contextTypes = {
 
 export default connect(state => ({
   menuData: state.menuReducer.menu
+}), dispatch => ({
+  setActiveGroup: groupId => {
+    dispatch({
+      type: SET_ACTIVE_GROUP,
+      data: groupId
+    })
+  }
 }))(GroupsTab);

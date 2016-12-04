@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import { Tabs, Tab } from 'material-ui/Tabs';
 
-import { fetchMenu } from '../actions';
 import TeachersTab from './TeachersTab';
 import GroupsTab from './GroupsTab';
 
-import { MENU_FETCHING, MENU_OK, MENU_ERROR } from '../reducers';
+import { fetchMenu } from './menuActions';
+import { MENU_FETCHING, MENU_OK, MENU_ERROR } from './menuReducer';
 
 class Menu extends Component {
   constructor(props) {

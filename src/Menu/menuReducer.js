@@ -1,4 +1,4 @@
-import { FETCH_MENU, STORE_MENU, FETCH_MENU_ERROR } from './actions';
+import { FETCH_MENU, STORE_MENU, FETCH_MENU_ERROR } from './menuActions';
 
 export const MENU_FETCHING = 'MENU_FETCHING';
 export const MENU_OK = 'MENU_OK';

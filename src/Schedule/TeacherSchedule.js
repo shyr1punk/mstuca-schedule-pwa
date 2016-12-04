@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Schedule from './Schedule';
-import { fetchTeacherSchedule } from '../actions';
+import { fetchTeacherSchedule } from './scheduleActions';
 
 class TeacherSchedule extends Component {
 
