@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { Tabs, Tab } from 'material-ui/Tabs';
+import LinearProgress from 'material-ui/LinearProgress';
 
 import TeachersTab from './TeachersTab';
 import GroupsTab from './GroupsTab';
@@ -35,7 +36,14 @@ class Menu extends Component {
     const { menuStatus } = this.props;
 
     if(menuStatus === MENU_FETCHING) {
-      return <h1>Меню загружается</h1>;
+      return (
+        <div>
+          <LinearProgress color='#ff4081' mode='indeterminate' />
+            <div style={{textAlign: 'center', marginTop: '50%'}}>
+              <h2>Меню загружается</h2>
+            </div>
+        </div>
+      );
     }
     if(menuStatus === MENU_OK) {
       return (
